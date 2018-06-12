@@ -45,6 +45,7 @@ $(document).ready(() => {
             .then((data) => { cb(data) })
             .catch((err) => { 
                 alert(`Sorry, impossible find requested city: ${city}`);
+                weatherTab.delete(city);
              })
 
         },
