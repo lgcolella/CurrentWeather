@@ -59,12 +59,14 @@ $(document).ready(() => {
 
         setData(){
             let cookie = document.cookie;
-            let cookieValueName = STATE.get('cookieValueName');
-            let data = cookie.split(`${cookieValueName}=`).slice(1);
-            let cities = JSON.parse(decodeURI(data));
-            cities.forEach((city) => {
-                weatherTab.add(city);
-            });
+            if(cookie.trim() !== ''){
+                let cookieValueName = STATE.get('cookieValueName');
+                let data = cookie.split(`${cookieValueName}=`).slice(1);
+                let cities = JSON.parse(decodeURI(data));
+                cities.forEach((city) => {
+                    weatherTab.add(city);
+                });
+            }
         }
 
     }
